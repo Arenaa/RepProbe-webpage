@@ -104,6 +104,7 @@ a{color:inherit}
 .section{padding:56px 0; border-bottom:1px solid var(--rule)}
 .sec-head{max-width:none; margin-bottom:32px}
 .sec-head h2{font-family:var(--disp); font-weight:700; font-size:clamp(24px,3.5vw,38px); line-height:1.12; letter-spacing:-.02em; margin:14px 0 14px}
+#results .sec-head h2{font-size:clamp(22px,3vw,30px)}
 .sec-head p{color:var(--muted); font-size:18px; margin:0; max-width:none; width:100%}
 
 .fig1{margin:0}
@@ -230,8 +231,8 @@ a{color:inherit}
 pre.bib{background:var(--card); border:1px solid var(--rule-2); border-radius:12px; padding:20px; overflow:auto;
   font-family:var(--mono); font-size:12.5px; line-height:1.7; color:var(--ink); margin:0}
 pre.bib .key{color:var(--blue)} pre.bib .str{color:var(--amber)}
-.foot-meta{display:flex; justify-content:space-between; align-items:flex-end; gap:18px; margin-top:0;
-  padding-top:0; flex-wrap:wrap; font-family:var(--mono); font-size:12.5px; color:var(--muted)}
+.foot-meta{display:flex; justify-content:space-between; align-items:flex-end; gap:18px; margin-top:44px;
+  padding-top:26px; border-top:1px solid var(--rule-2); flex-wrap:wrap; font-family:var(--mono); font-size:12.5px; color:var(--muted)}
 .foot-cred{display:flex; flex-direction:column; gap:5px}
 .foot-cred .authors{font-family:var(--body); font-size:15px; margin:0}
 .foot-meta a{color:var(--muted); text-decoration:none; transition:color .15s}
@@ -274,7 +275,7 @@ table.rt{border-collapse:collapse; width:100%; min-width:720px; font-family:var(
 .table-block{margin-top:36px}
 .table-block h3{font-family:var(--disp); font-weight:700; font-size:22px; letter-spacing:-.015em; margin:0 0 8px}
 .table-block p{color:var(--muted); font-size:15.5px; margin:0 0 16px}
-.table-block .rt-cap{font-size:12px; color:var(--faint); margin:14px 0 0; max-width:42em}
+.table-block .rt-cap{font-size:12px; color:var(--faint); margin:14px 0 0; max-width:none; white-space:nowrap}
 .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
 .stats.four{grid-template-columns:repeat(4,1fr)}
 .stat{background:var(--card); border:1px solid var(--rule-2); border-radius:14px; padding:22px}
@@ -300,6 +301,7 @@ table.rt{border-collapse:collapse; width:100%; min-width:720px; font-family:var(
       <a class="txt" href="#how">Construction</a>
       <a class="txt" href="#diagnosis">Diagnosis</a>
       <a class="txt" href="#result">Results</a>
+      <a class="txt" href="#cite">Cite</a>
     </div>
   </div>
 </nav>
@@ -316,7 +318,7 @@ table.rt{border-collapse:collapse; width:100%; min-width:720px; font-family:var(
       <p class="affil">Georgetown University &middot; GUCV Lab</p>
       <p class="lede"><span class="k">RepProbe</span> is a 42K-clip benchmark of real and synthetic videos with exactly <em>k</em> &isin; [1, 20] complete repetitions, controlled for position, coverage, and duration. Counting accuracy collapses at high <em>k</em> across video-language models, yet a linear probe on the last-layer residual still recovers the count: the failure is at generation, not in what the model encodes.</p>
       <div class="cta">
-        <a class="btn btn-solid" href="#">arXiv</a>
+        <a class="btn btn-solid" href="https://arxiv.org/abs/2610.18844" target="_blank" rel="noopener noreferrer">PrePrint</a>
         <a class="btn btn-solid" href="#">Code + Data</a>
       </div>
     </div>
@@ -554,20 +556,21 @@ table.rt{border-collapse:collapse; width:100%; min-width:720px; font-family:var(
   </div>
 </section>
 
-<footer class="foot">
+<footer class="foot" id="cite">
   <div class="wrap">
-    <!--
     <div class="cite-head">
       <h3>Cite RepProbe</h3>
       <button class="copybtn" id="copyBib">Copy BibTeX</button>
     </div>
-    <pre class="bib" id="bib"><span class="key">@misc</span>{khoshnoodi2026repprobe,
-  <span class="key">title</span>         = {<span class="str">RepProbe: Repetition Counts Are Linearly Decodable from Video LLMs but Not Reported</span>},
+    <pre class="bib" id="bib"><span class="key">@misc</span>{khoshnoodi2026repprobevideolanguagemodels,
+  <span class="key">title</span>         = {<span class="str">RepProbe: Can Video Language Models Count Repeated Actions? A Diagnostic Benchmark</span>},
   <span class="key">author</span>        = {<span class="str">Mahsa Khoshnoodi and Sarah Adel Bargal</span>},
   <span class="key">year</span>          = {<span class="str">2026</span>},
-  <span class="key">note</span>          = {<span class="str">Georgetown University, GUCV Lab</span>}
+  <span class="key">eprint</span>        = {<span class="str">2610.18844</span>},
+  <span class="key">archivePrefix</span> = {<span class="str">arXiv</span>},
+  <span class="key">primaryClass</span>  = {<span class="str">cs.CV</span>},
+  <span class="key">url</span>           = {<span class="str">https://arxiv.org/abs/2610.18844</span>}
 }</pre>
-    -->
     <div class="foot-meta">
       <div class="foot-cred">
         <span class="authors">
@@ -575,9 +578,6 @@ table.rt{border-collapse:collapse; width:100%; min-width:720px; font-family:var(
           <a href="https://scholar.google.com/citations?user=zjlFcrEAAAAJ" target="_blank" rel="noopener noreferrer">Sarah Adel Bargal</a>
         </span>
         <span>Georgetown University &middot; GUCV Lab</span>
-      </div>
-      <div class="foot-links">
-        <a href="#benchmark">Benchmark</a><a href="#">Code</a><a href="#">Data</a>
       </div>
     </div>
   </div>
